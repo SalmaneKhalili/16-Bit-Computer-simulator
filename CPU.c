@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "hash_table.h"
+
 
 // Opcode Mask
 #define MASK_OPCODE 0x8000  // Bit 15 instruction[15]
