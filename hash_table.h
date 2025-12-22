@@ -8,8 +8,8 @@
 
 typedef struct
 {
-    uint16_t* key;
-    uint16_t* value;
+    char* key;
+    uint16_t value;
 }ht_item;
 typedef struct
 {
