@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "hash_table.h"
+#include "Assembler.h"
 
 
 // Opcode Mask
@@ -131,5 +131,3 @@ int main() {
 //TODO LOAD INTO ROM FUNCTION
 //TODO ASSEMBLER FOR HACK ASSEMBLY
 //TODO IO
-
-
