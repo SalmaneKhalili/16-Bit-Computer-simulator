@@ -45,12 +45,10 @@ int main() {
     uint16_t pc = 0;         // Program Counter
     uint16_t A = 0;         // A-Register
     uint16_t D = 0;        // D-Register
+    load(ROM);
 
     // test case following HACK ML Specifications //
-    ROM[0] = 0x0011; // @17
-    ROM[1] = 0xEC10; // D=A
-    ROM[2] = 0x0019; // @25
-    ROM[3] = 0xE090; // D=D+A
+
 
     while (pc < 32768)
     {
@@ -124,6 +122,7 @@ int main() {
         (jump) ? pc = A : pc++;
 
     }
+
 
     return 0;
 }

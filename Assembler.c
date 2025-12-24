@@ -9,6 +9,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 static ht_item* ht_new_item(const char* k, const u_int16_t v);
 ht_hash_table* ht_new();
@@ -18,11 +19,43 @@ static int ht_hash(const char* key, const int prime, const int size);
 static int ht_get_hash(const char* key, const int num_buckets, const int attempt);
 void ht_insert(ht_hash_table* ht, const char* key, const u_int16_t value);
 ht_item* ht_search(ht_hash_table* ht, const char* key);
+uint16_t binary_to_uint16(const char *str);
+int load(u_int16_t* ROM);
 
-int main()
+
+
+
+
+
+int load(u_int16_t* ROM)
 {
+    FILE* fp = fopen("/home/salmane/CLionProjects/16-Bit-Computer-simulator/testcase.hack", "r");
+    if (fp == NULL)
+    {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    char *line = NULL;
+    size_t len = 0;
+    size_t read;
+    int i = 0;
+    while ((read = getline(&line, &len, fp)) != -1)
+    {
+        if (read > 0 && line[read - 1 ] == '\n')
+        {
+            line[read-1] = '\0';
+        }
+        u_int16_t val =  binary_to_uint16(line);
+        ROM[i] = val;
+        i++;
+    }
 
+}
 
+u_int16_t binary_to_uint16(const char* str) {
+    char* endptr;
+    u_int16_t res = (u_int16_t)strtol(str,&endptr,2);
+    return res;
 }
 
 static ht_item* ht_new_item(const char* k, const u_int16_t v)
